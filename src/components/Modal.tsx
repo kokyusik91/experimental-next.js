@@ -2,10 +2,10 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import Portal from './Portal'
 import { useRouter } from 'next/router'
 
-type ModalProps = {
+export type ModalProps = {
   open: boolean
-  onClose: () => void
-  children: ReactNode
+  onClose?: () => void
+  children?: ReactNode
 }
 
 function Modal({ open, children, onClose }: ModalProps) {
@@ -13,7 +13,7 @@ function Modal({ open, children, onClose }: ModalProps) {
     if (open) {
       // Add event listener to prevent closing the modal when the back button is clicked
       const handlePopState = (event: PopStateEvent) => {
-        onClose()
+        onClose && onClose()
         // Restore the previous state to prevent the user from going back
         window.history.pushState(null, '')
         event.preventDefault()

@@ -8,8 +8,6 @@ type PortalProps = {
 function Portal({ children }: PortalProps) {
   const [element, setElement] = useState<HTMLElement | null>(null)
 
-  console.log(element)
-
   useEffect(() => {
     setElement(document.getElementById('portal'))
   }, [])

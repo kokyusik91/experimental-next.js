@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const router = useRouter()
+
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
@@ -28,6 +31,7 @@ export default function Home() {
               width={100}
               height={24}
               priority
+              onClick={() => router.push('/home')}
             />
           </a>
         </div>
@@ -113,6 +117,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <button onClick={() => router.push('/home')}>페이지 이동</button>
     </main>
   )
 }
