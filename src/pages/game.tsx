@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 function Game() {
   const { openModal, closeModal, setModalInnerContent } = useModal()
 
-  const handleOpenModal = () => {
+  useEffect(() => {
     setModalInnerContent(
       <>
         <h1 className="text-black">모달 컨텐츠</h1>
@@ -13,6 +13,9 @@ function Game() {
         </p>
       </>,
     )
+  }, [])
+
+  const handleOpenModal = () => {
     openModal()
   }
 
